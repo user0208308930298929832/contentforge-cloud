@@ -1,6 +1,13 @@
-import os, json, base64
+import os, sys, json, base64
 import streamlit as st
 from pathlib import Path
+
+# --- Corrige imports para Streamlit Cloud ---
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))
+# --------------------------------------------
+
 from contentforge.services.generator import generate_all
 from contentforge.services.exporter import export_csv, export_md, export_txt
 
