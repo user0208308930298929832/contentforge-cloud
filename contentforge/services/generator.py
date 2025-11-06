@@ -4,8 +4,7 @@ from openai import OpenAI
 from ..core.prompts import CONTENT_SYSTEM, SHORTS_USER_TEMPLATE, CAROUSEL_TEMPLATE, BLOGS_TEMPLATE
 
 def _client() -> OpenAI:
-    return OpenAI(api_key=os.getenv("OPENAI_API_KEY") or None)
-
+    return OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 def _chat_json(system: str, user: str, model: str) -> Dict[str, Any]:
     cli = _client()
     resp = cli.chat.completions.create(
